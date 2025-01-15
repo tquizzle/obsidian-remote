@@ -1,6 +1,6 @@
 FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbookworm
 
-LABEL maintainer="tquinnelly@gmail.com" \
+LABEL maintainer="tquinnelly@gmail.com"
 
 # Set version label
 ARG OBSIDIAN_VERSION=1.7.7
