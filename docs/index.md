@@ -2,6 +2,8 @@
 
 This docker image allows you to run [obsidian](https://obsidian.md/) in docker as a container and access it via your web browser.
 
+Forked from sytone/obsidian-remote.
+
 Use `http://localhost:8080/` to access it locally, do not expose this to the web unless you secure it and know what you are doing!
 
 - [Using the Container](#using-the-container)
