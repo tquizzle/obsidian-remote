@@ -88,8 +88,8 @@ services:
       - 8080:8080
       - 8443:8443
     volumes:
-      - /home/obsidian/vaults:/vaults
-      - /home/obsidian/config:/config
+      - /opt/vaults:/vaults
+      - /opt/config:/config
     environment:
       - PUID=1000
       - PGID=1000
@@ -121,7 +121,7 @@ docker run -d
 
 If you make changes to plugins or do updates that need to have obsidian restarted, instead of having to stop and start the docker container you can just close the Obsidian UI and right click to show the menus and reopen it. Here is a short clip showing how to do it.
 
-![Reloading Obsidian in the Browser](./assets/ReloadExample.gif)
+![Reloading Obsidian in the Browser](/assets/ReloadExample.gif)
 
 ## Setting PUID and PGID
 
@@ -145,15 +145,7 @@ environment:
   - PGID=1000
 ```
 
-It is most likely that you will use the id of yourself, which can be obtained by running the command below. The two values you will be interested in are the uid and gid.
-
-```
-id $user
-```
-
-## Adding missing fonts
-
-Thanks to @aaron-jang for this example.
+## Adding additional fonts
 
 Download the font of the language that you want to use in Obsidian and add it to the volume as shown below.
 
@@ -172,7 +164,7 @@ Download the font of the language that you want to use in Obsidian and add it to
 
 ## Hosting behind a reverse proxy
 
-If you wish to do that **please make sure you are securing it in some way!**. You also need to ensure **websocket** support is enabled.
+You need to ensure **websocket** support is enabled.
 
 ### Example nginx configuration
 
@@ -209,8 +201,6 @@ server {
 
 ## Hosting behind Nginx Proxy Manager (NPM)
 
-Thanks to @fahrenhe1t for this example.
-
 If you install obsidian-remote in Docker, you can proxy it through [Nginx Proxy Manager](https://nginxproxymanager.com/) (NPM - running on the same Docker instance), and use an access list to provide user authentication. The obsidian-remote container would have to be on the same network as Nginx Proxy Manager. If you don't expose the IP external to the container, authentication would be forced through NPM:
 
 ```yaml
@@ -246,18 +236,15 @@ By default obsidian will update itself in the container. If you recreate the con
 To build and use it locally run the following commands:
 
 ```
-docker build --pull --rm
-  -f "Dockerfile"
-  -t obsidian-remote:latest
-  "."
+docker build --pull --rm -f "Dockerfile" -t obsidian-remote:latest "."
 ```
 
 To run the localy build image:
 
 ```
 docker run --rm -it
-  -v D:/ob/vaults:/vaults
-  -v D:/ob/config:/config
+  -v /opt/vaults:/vaults
+  -v /opt/config:/config
   -p 8080:8080
   obsidian-remote:latest bash
 ```
