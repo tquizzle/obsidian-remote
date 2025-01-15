@@ -121,7 +121,7 @@ docker run -d
 
 If you make changes to plugins or do updates that need to have obsidian restarted, instead of having to stop and start the docker container you can just close the Obsidian UI and right click to show the menus and reopen it. Here is a short clip showing how to do it.
 
-![Reloading Obsidian in the Browser](/assets/ReloadExample.gif)
+![Reloading Obsidian in the Browser](https://raw.githubusercontent.com/tquizzle/obsidian-remote/refs/heads/master/assets/ReloadExample.gif)
 
 ## Setting PUID and PGID
 
@@ -177,7 +177,7 @@ server {
   set $port           8080;
 
   listen 80;
-  server_name ob.mycooldomain.com;
+  server_name ob.mydomain.com;
   proxy_set_header Upgrade $http_upgrade;
   proxy_set_header Connection $http_connection;
   proxy_http_version 1.1;
@@ -206,7 +206,7 @@ If you install obsidian-remote in Docker, you can proxy it through [Nginx Proxy 
 ```yaml
 services:
   obsidian:
-    image: 'tquinnelly/obsidian-remote:latest'
+    image: tquinnelly/obsidian-remote:latest
     container_name: obsidian-remote
     restart: unless-stopped
     ports:
