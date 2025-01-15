@@ -49,11 +49,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: dockerfile.amd64
+          file: Dockerfile
           platforms: linux/amd64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/obsidian-remote:latest
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/obsidian-remote:buildcache_amd64
-          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/obsidian-remote:buildcache_amd64,mode=max
+#          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/obsidian-remote:buildcache_amd64
+#          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/obsidian-remote:buildcache_amd64,mode=max
 
