@@ -4,10 +4,6 @@ This docker image allows you to run [obsidian](https://obsidian.md/) in docker a
 
 Use `http://localhost:8080/` to access it locally, do not expose this to the web unless you secure it and know what you are doing!
 
-
-Documentation is available at its [own site](https://tquizzle.github.io/obsidian-remote/).
-
-
 - [Using the Container](#using-the-container)
   - [Ports](#ports)
   - [Mapped Volumes](#mapped-volumes)
@@ -272,5 +268,4 @@ Click on the circle to the left side of your browser window. In there you will f
 
 ![image](https://user-images.githubusercontent.com/1399443/202805847-a87e2c7c-a5c6-4dea-bbae-4b25b4b5866a.png)
 
-
-
+![image](https://tianji.0hq.cc/telemetry/clnzoxcy10001vy2ohi4obbi0/cm5x9spl000096g0ryosj4enl.gif)
