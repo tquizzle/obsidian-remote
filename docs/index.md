@@ -22,12 +22,11 @@ Use `http://localhost:8080/` to access it locally, do not expose this to the web
   - [Example nginx configuration](#example-nginx-configuration)
 - [Hosting behind Nginx Proxy Manager (NPM)](#hosting-behind-nginx-proxy-manager-npm)
 - [Updating Obsidian](#updating-obsidian)
-- [Building locally](#building-locally)
 - [Copy/Paste From External Source](#copypaste-from-external-source)
 
 ## Using the Container
 
-To run a interactive version to test it out. This is using windows based path, update for the OS you are running on.
+To run a interactive version to test it out. This is using *nix based path, update for the OS you are running on.
 
 ```
 docker run --rm -it
@@ -214,8 +213,8 @@ services:
     ports:
       - 8080 #only exposes port internally to the container
     volumes:
-      - /home/obsidian/vaults:/vaults
-      - /home/obsidian/config:/config
+      - /opt/vaults:/vaults
+      - /opt/config:/config
     environment:
       - PUID=1000
       - PGID=1000
@@ -232,24 +231,6 @@ Create a proxy host in NPM pointing to the "obsidian-remote:8080" container, cho
 ## Updating Obsidian
 
 By default obsidian will update itself in the container. If you recreate the container you will have to do the update again. This repo will be updated periodically to keep up with the latest version of Obsidian.
-
-## Building locally
-
-To build and use it locally run the following commands:
-
-```
-docker build --pull --rm -f "Dockerfile" -t obsidian-remote:latest "."
-```
-
-To run the localy build image:
-
-```
-docker run --rm -it
-  -v /opt/vaults:/vaults
-  -v /opt/config:/config
-  -p 8080:8080
-  obsidian-remote:latest bash
-```
 
 ## Copy/Paste From External Source
 
